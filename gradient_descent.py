@@ -11,7 +11,8 @@ from autograd import grad, numpy as autograd_np
 import matplotlib.cm
 
 
-pn.extension("plotly")
+# Solo necesario para notebook:
+#pn.extension("plotly")
 
 
 # Funciones auxiliares:
