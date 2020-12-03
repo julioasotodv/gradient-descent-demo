@@ -481,5 +481,5 @@ boton_step.on_click(gradient_descent_paso)
 # Inicialización dashboard:
 generacion_loss_function.clicks = 1
 betas_cambiadas_automaticamente = False
-dashboard.servable()
+dashboard.servable(title="Gradient Descent Demo")
 
