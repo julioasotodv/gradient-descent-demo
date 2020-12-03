@@ -47,8 +47,8 @@ seleccion_loss_function = pn.widgets.RadioBoxGroup(name='loss_function',
 input_loss_function = pn.widgets.input.TextAreaInput(name='Loss function', 
                                                      placeholder=("Introduce aquí una expresión para el loss en base" + 
                                                                   "a w1 y w2. Puedes usar funciones de numpy (como np.loquesea). " +
-                                                                  "Por ejemplo: np.log(w1*10) + np.exp(w2) + 10"),
-                                                     value="np.log(np.abs(w2)+1) + 0.1 * np.abs(w1**3) - 0.5 * w1**2 + 1e-4 * w2 **2 * w1**2",
+                                                                  "Por ejemplo: np.log(np.abs(w2)+1) + 0.1 * np.abs(w1**3) - 0.5 * w1**2 + 1e-4 * w2 **2 * w1**2 + 12"),
+                                                     value="np.log(np.abs(w2)+1) + 0.1 * np.abs(w1**3) - 0.5 * w1**2 + 1e-4 * w2 **2 * w1**2 + 12",
                                                      sizing_mode="stretch_width")
 pane_beta_inicial_1_custom_loss = pn.widgets.FloatInput(name="w₁ inicial:", 
                                                         sizing_mode="stretch_width",
@@ -121,6 +121,8 @@ row_plot = pn.Row(pn.Spacer(sizing_mode="stretch_both"),
                   sizing_mode="stretch_height"
                  )
 
+# Footer:
+
 # Dashboard completo:
 dashboard = pn.Column(pn.pane.HTML(object="<h1>Demo Gradient Descent</h1>",
                                    style={"text-align": "center",
@@ -133,6 +135,9 @@ dashboard = pn.Column(pn.pane.HTML(object="<h1>Demo Gradient Descent</h1>",
                       grid_boton,
                       pn.pane.Markdown(""),
                       row_plot,
+                      pn.pane.HTML(object="""<p>Demo por <a href="https://twitter.com/julio_a_soto">Julio Antonio Soto</a> 
+                                             para <a href="https://www.datahack.es/">datahack</a>. Realizada con <a href="https://panel.holoviz.org/">Panel</a>, <a href="https://plotly.com/graphing-libraries/">Plotly</a>, 
+                                             <a href="https://numpy.org/">numpy</a> y <a href="https://github.com/HIPS/autograd">autograd</a>.</p>"""),
                       sizing_mode="stretch_width"
                       )
 
@@ -149,7 +154,7 @@ def añadir_opciones_personalizadas_loss(*events):
                     fig_inicial["layout"]["scene"]["camera"]["eye"] = plotly_grafico.relayout_data["scene.camera"]["eye"]
                 plotly_grafico.object = fig_inicial
             else:
-                if len(dashboard) > 6:
+                if len(dashboard) > 7:
                     dashboard.pop(3)
                     fig_inicial["layout"]["height"] = 400
                     if plotly_grafico.relayout_data is not None:
@@ -336,7 +341,7 @@ def iniciar_figura(click):
     fig_inicial["data"].append(elementos[0])
     plotly_grafico = pn.pane.Plotly(config={'responsive': True})
     plotly_grafico.object = fig_inicial
-    dashboard[-1][0] = plotly_grafico
+    dashboard[-2][0] = plotly_grafico
     fig_inicial["layout"]["height"] = 402
     plotly_grafico.object = fig_inicial
     boton_step.name = "¡Calcular gradiente!"
