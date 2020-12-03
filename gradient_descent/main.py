@@ -45,7 +45,7 @@ seleccion_loss_function = pn.widgets.RadioBoxGroup(name='loss_function',
                                                    inline=True)
 
 input_loss_function = pn.widgets.input.TextAreaInput(name='Loss function', 
-                                                     placeholder=("Introduce aquí una expresión para el loss en base" + 
+                                                     placeholder=("Introduce aquí una expresión para el loss en base " + 
                                                                   "a w1 y w2. Puedes usar funciones de numpy (como np.loquesea). " +
                                                                   "Por ejemplo: np.log(np.abs(w2)+1) + 0.1 * np.abs(w1**3) - 0.5 * w1**2 + 1e-4 * w2 **2 * w1**2 + 12"),
                                                      value="np.log(np.abs(w2)+1) + 0.1 * np.abs(w1**3) - 0.5 * w1**2 + 1e-4 * w2 **2 * w1**2 + 12",
@@ -85,7 +85,7 @@ grid_loss[0:8, 5:6] = w2_max
 grid_loss[8:16, 2:4] = pane_beta_inicial_1_custom_loss
 grid_loss[8:16, 4:6] = pane_beta_inicial_2_custom_loss
 
-generacion_loss_function = pn.widgets.Button(name="Generar!", sizing_mode="stretch_width")
+generacion_loss_function = pn.widgets.Button(name="¡Generar!", sizing_mode="stretch_width")
 grid_boton = pn.GridSpec(nrows=1, ncols=6, height=35, sizing_mode="stretch_width")
 
 grid_boton[0, :1] = None
@@ -133,7 +133,9 @@ dashboard = pn.Column(pn.pane.HTML(object="<h1>Demo Gradient Descent</h1>",
                                    style={"margin-top": "0"}),
                       seleccion_loss_function,
                       grid_boton,
-                      pn.pane.Markdown(""),
+                      pn.pane.HTML(object='<br><h3>Algoritmo</h3>',
+                                   sizing_mode="stretch_width",
+                                   style={"margin-top": "0"}),
                       row_plot,
                       pn.pane.HTML(object="""<p>Demo por <a href="https://twitter.com/julio_a_soto">Julio Antonio Soto</a> 
                                              para <a href="https://www.datahack.es/">datahack</a>. Realizada con <a href="https://panel.holoviz.org/">Panel</a>, <a href="https://plotly.com/graphing-libraries/">Plotly</a>, 
