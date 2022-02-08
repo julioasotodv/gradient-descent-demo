@@ -99,7 +99,7 @@ pane_valor_loss = pn.pane.Markdown(object="Valor loss: ", sizing_mode="stretch_w
 pane_vector_gradiente = pn.pane.Markdown(object="Vector gradiente: ", sizing_mode="stretch_width")
 
 slider_step_size = pn.widgets.DiscreteSlider(name='Tamaño step (learning rate)', 
-                                             options=[0.001, 0.01, 0.05, 0.1, 0.2, 0.5, 1.0, 5.0, 10.0, 50.0], 
+                                             options=[0.001, 0.01, 0.05, 0.1, 0.2, 0.5, 1.0, 5.0, 10.0, 80.0], 
                                              value=0.1, 
                                              sizing_mode="stretch_width")
 boton_step = pn.widgets.Button(name="¡Calcular gradiente!",  
