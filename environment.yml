@@ -59,8 +59,6 @@ dependencies:
   - libcxx=14.0.6
   - libdeflate=1.14
   - libffi=3.3
-  - libgfortran=5.0.0
-  - libgfortran5=11.3.0
   - liblapack=3.9.0
   - libopenblas=0.3.21
   - libpng=1.6.39
@@ -157,4 +155,3 @@ dependencies:
   - zipp=3.11.0
   - zlib=1.2.13
   - zstd=1.5.2
-  
